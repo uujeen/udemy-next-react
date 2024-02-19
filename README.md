@@ -1,5 +1,7 @@
 ## Udemy Next-react 강의
 
+Link : https://www.udemy.com/course/nextjs-react-incl-two-paths/
+
 ### NOTE: React
 
 React는 JSX 코드를 읽고 JS로 변환시켜 브라우저에서 DOM 랜더링을 한다.
@@ -137,3 +139,7 @@ React에서는 상태 갱신 함수를 바로 실행할 수 있고 아닐 수 �
     setPosts((prev) => [item, ...prev]);
   }
 ```
+
+> React SPA(Single Page Application)
+
+React로 프론트를 구현했을 때 html 한 개의 파일만 있고, 나머지는 다 자바스크립트로 구현되어있다. 따라서 페이지 간 이동이나, 동작들은 자바스크립트에 의해서 실행되는 것들이다.
