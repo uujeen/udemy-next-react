@@ -117,3 +117,23 @@ React는 useState에서 반환하는 set함수를 호출했을 때 메모리에 
 
 React는 리랜더링이 일어났을 때 찍은 스냅샷(가상 DOM)을 가지고 기존 DOM과 비교하여 달라진 부분이 있다면 해당 UI를 수정한다.
 변경된 부분만 업데이트 하므로 불필요하게 DOM을 다 업데이트 하지 않는다.
+
+> 상태 갱신 함수
+
+React에서는 상태 갱신 함수를 바로 실행할 수 있고 아닐 수 도 있기 때문에, 여러 업데이트가 일어날 때 구버전이 잘못된 상태로 업데이트 할 수 있기 때문에, 다음과 같은 안전한 방식으로 업데이트 하는 것을 권장한다.
+
+```JS
+// X
+  const [posts, setPosts] = useState([]);
+
+  function addPostHandler(item) {
+    setPosts([item, ...posts]);
+  }
+
+// O
+  const [posts, setPosts] = useState([]);
+
+  function addPostHandler(item) {
+    setPosts((prev) => [item, ...prev]);
+  }
+```

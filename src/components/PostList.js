@@ -1,14 +1,27 @@
 import classes from './PostList.module.css';
+import Modal from './Modal';
 import NewPost from './NewPost';
 import Post from './Post';
+import { useState } from 'react';
 
-function PostList() {
+function PostList({ isPosting, onStopPosting }) {
+  const [posts, setPosts] = useState([]);
+
+  function addPostHandler(item) {
+    setPosts((prev) => [item, ...prev]);
+  }
+
   return (
     <>
-      <NewPost />
+      {isPosting && (
+        <Modal onClose={onStopPosting}>
+          <NewPost onCancel={onStopPosting} onAddPost={addPostHandler} />
+        </Modal>
+      )}
       <ul className={classes.posts}>
-        <Post author="Develop" body="React is awesome!" />
-        <Post author="Product" body="React is awesome!" />
+        {posts.map((item) => (
+          <Post key={item.author} body={item.body} author={item.author} />
+        ))}
       </ul>
     </>
   );
