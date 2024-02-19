@@ -1,11 +1,10 @@
 import './App.css';
-import Post from './components/Post';
+import PostList from './components/PostList';
 
 function App() {
   return (
     <main className="App">
-      <Post author="Develop" body="React is awesome!" />
-      <Post author="Product" body="React is awesome!" />
+      <PostList />
     </main>
   );
 }

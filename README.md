@@ -74,6 +74,9 @@ return (
 
 일종의 컨벤션, module.css를 사용해서 해당 컴포넌트에 스타일을 입힐 수 있고, 개발자 도구로 스타일을 확인해보면 변환된 클래스 이름으로 변환된 것을 확인할 수 있다.
 
+Component.module.css
+Component.jsx
+
 ```JS
 import classes from './Post.module.css';
 // 위와 같이 import 시켜 사용할 수 있다.
@@ -87,5 +90,30 @@ function Post(props) {
 }
 ```
 
-Component.module.css
-Component.jsx
+> React 랜더링, useState, useRef 훅과 변수
+
+React는 컴포넌트 함수를 실행시키면서 함수가 반환하는 JSX 코드를 실행한다. 그리고 HTML 스냅샷을 찍어 그걸 랜더링 시킨다.
+그리고 React는 컴포넌트를 처음 실행되었을 때에만 랜더링 한다.
+따라서 변수를 출력하고 싶으면 useState를 사용해야 React는 해당 변수가 변경된 것을 인지했을 때 비로소 리랜더링이 일어나 화면에 변화된 값을 볼 수 있는 것이다. 만약 변수로써 기능과 변수의 값을 유지하고 싶다면 useRef를 사용한다.
+
+만약 const, let과 같이 변수를 선언해서 사용할 경우 함수가 재실행되면 초기값으로 돌아가 기존 값을 잃어버리기 떄문이다.
+
+그냥 당연하게 사용했지만 useState는 배열을 반환하여 0번째는 value 값을 1번째는 변수의 상태를 변경할 수 있는 함수를 반환한다.
+
+```JS
+// useState는 배열을 반환한다.
+const reactState = useState('');
+const value = reactState[0];
+const updateState = reactState[1];
+
+// 기존에 우리가 사용했던 방식
+const [value, setValue] = useState('');
+
+```
+
+React는 useState에서 반환하는 set함수를 호출했을 때 메모리에 새 상태 값을 저장할 뿐 아니라, 해당 컴포넌트를 재호출한다.
+
+> Virtual DOM
+
+React는 리랜더링이 일어났을 때 찍은 스냅샷(가상 DOM)을 가지고 기존 DOM과 비교하여 달라진 부분이 있다면 해당 UI를 수정한다.
+변경된 부분만 업데이트 하므로 불필요하게 DOM을 다 업데이트 하지 않는다.
