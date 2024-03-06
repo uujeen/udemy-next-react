@@ -6,21 +6,21 @@
 
 Link : https://www.udemy.com/course/nextjs-react-incl-two-paths/
 
-### NOTE: Next (app route)
+## NOTE: Next.js (app router)
 
-> Next.js는 기본적으로 `SSR`을 제공한다.
+### Next.js는 기본적으로 `SSR`을 제공한다.
 
 Next.js는 기본적으로 리액트 컴포넌트를 서버 컴포넌트로 인지하여 `Server Side Rendering(SSR)`을 제공한다.
 일반 리액트 컴포넌트를 서버 컴포넌트로 인지하여 JSX코드가 서버에서 실행된 후 브라우저에 넘겨져 HTML로 렌더링된다.
 
-> 파일 시스템을 통한 경로 추가
+### 라우팅 방식 (app router)
 
 `localhost:3000/about` 해당 경로에 들어가고 싶다면, `app/about`이라는 폴더를 생성하고 `page.jsx` or `page.tsx`를 통해 NextJS에게 해당 경로의 페이지에 접근할 수 있다고 알려줄 수 있다.
 
 Next.js에는 이런 파일 컨벤션이 정의되어 있는데 예로 `layout, page, not-found, error.tsx`가 있다
 더 자세한 내용은 [Next.js 파일 컨벤션](https://nextjs.org/docs/app/api-reference/file-conventions) 해당 링크에서 확인할 수 있다.
 
-> 경로 이동하기
+### 경로 이동하기
 
 기존 방식대로 a태그의 href로 이동할 경우 백엔드에서 새로운 페이지를 다운받는 방식으로 페이지를 이동한다.(새로고침 아이콘이 일시적으로 변경되는 것을 확인하여 간단히 알 수 있다.)
 
@@ -29,3 +29,14 @@ Next.js에는 이런 파일 컨벤션이 정의되어 있는데 예로 `layout, 
 
 `Next.js에선 둘 다 사용이 가능하다.`
 a태그가 아닌 Link태그를 동일한 방식으로 사용할 경우 페이지를 벗어나는게 아닌 화면 뒤에서 클라이언트에서 페이지 내용이 서버에서 렌더링되고 클라이언트에 보내져 클라이언트 사이드 자바스크립트 코드가 실행 돼 반영되는 것이다.
+
+### Layout
+
+모든 Next 프로젝트는 최소 하나의 `Root Layout`이 존재해야한다.
+layout은 말 그대로 페이지가 렌더링 되는 레이아웃(Wrapper)을 의미한다.
+Next 프로젝트는 head 요소와 metadata와 같은 데이터는 `metadata`라는 변수 또는 상수를 export할 시 해당 페이지의 메타데이터를 설정할 수 있다.
+
+여기서 선언된 메타데이터는 해당 레이아웃이 포함된 모든 페이지에 설정된다.
+따라서 layout에 head 태그가 없는 이유는 메타데이터에서 설정되거나 Next.js로 인해 이면에서 자동으로 설정된다.
+
+++ 이전 프로젝트에서 메타데이터를 동적으로 설정해준 적이 있는데 api로 데이터를 불러와 해당 메타데이터 요소를 할당 해줌으로써 적용이 가능하다.
