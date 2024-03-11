@@ -79,3 +79,13 @@ import 방식을 예전처럼 @를 사용해서 할 수 있는데 다음과 같�
 import Header from '../components/Header';
 import Header from '@/components/Header';
 ```
+
+### Dynamic Route
+
+블로그를 예시로 하나의 글을 작성할 때 마다 `/blog/post-1`, `/blog/post-2` 과 같이 라우팅할 폴더를 계속 만들 수 없다.
+
+따라서 `/blog/[post]`와 같이 해당 폴더를 대괄호로 묶어주는 컨벤션을 적용해줌으로써 `/blog/1`, `/blog/2`, `/blog/everything` 과 같이 동적으로 라우팅을 할 수 있다.
+
+하지만, 예를 들어 blog 하위 폴더에 posting이라는 폴더가 존재한다면 어디로 라우팅이 될까?
+
+정답은 `/blog/posting` 페이지로 라우팅 된다. Next.js에서는 이론적으로 posting도 동적 segment의 값으로 맞지만, 이미 명명된 폴더가 존재할 경우에는 해당 폴더로 라우팅된다.

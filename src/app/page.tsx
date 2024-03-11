@@ -2,9 +2,18 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main>
+      <h1 style={{ color: 'white', textAlign: 'center' }}>
+        Time to get started!
+      </h1>
       <p>
-        <Link href="/about">Go To About Page</Link>
+        <Link href="/meals">meals</Link>
+      </p>
+      <p>
+        <Link href="/meals/share">meals share</Link>
+      </p>
+      <p>
+        <Link href="/community">community</Link>
       </p>
     </main>
   );
