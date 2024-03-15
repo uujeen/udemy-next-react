@@ -32,7 +32,7 @@ Next.js에는 이런 파일 컨벤션이 정의되어 있는데 예로 `layout, 
 
 이 의미는 React와 같이 더이상 SPA(Single Page Application)이 아니라는 의미이다.
 
-기본적으로 Next.js는 HTML과 JS를 서버에서 랜더링하고 클라이언트에 보내기 때문에 당연하다고 이해할 수 있지만.
+기본적으로 Next.js는 HTML과 JS를 서버에서 렌더링하고 클라이언트에 보내기 때문에 당연하다고 이해할 수 있지만.
 
 > Next.js에선 둘 다 사용이 가능하다.
 
@@ -89,3 +89,9 @@ import Header from '@/components/Header';
 하지만, 예를 들어 blog 하위 폴더에 posting이라는 폴더가 존재한다면 어디로 라우팅이 될까?
 
 정답은 `/blog/posting` 페이지로 라우팅 된다. Next.js에서는 이론적으로 posting도 동적 segment의 값으로 맞지만, 이미 명명된 폴더가 존재할 경우에는 해당 폴더로 라우팅된다.
+
+### Layout
+
+레이아웃과 페이지의 경우 컴포넌트들을 직접 렌더링하는 것이 아니다.
+
+JSX 코드에 직접 사용하는 것이 아니라 Next.js에서 대신 사용해준다.

@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             ></path>
           </svg>
         </div>
-
+        <p>The Main Layout</p>
         {children}
       </body>
     </html>
