@@ -95,3 +95,25 @@ import Header from '@/components/Header';
 레이아웃과 페이지의 경우 컴포넌트들을 직접 렌더링하는 것이 아니다.
 
 JSX 코드에 직접 사용하는 것이 아니라 Next.js에서 대신 사용해준다.
+
+### Img
+
+Next.js에서는 리액트 프로젝트와 다르게 img 파일을 그대로 src에 적용할 수 없고 src 프로퍼티로 접근 해야한다.
+
+Next.js에서는 import 시킨 이미지가 src 프로퍼티에 저장된 객체가 될 것이기 때문이다.
+
+```JS
+import logoImg from '@/assets/logo.png';
+
+export default function Header() {
+  return (
+    <header>
+      <Link href="/">
+        {/* <img src={logoImg}></img> */}
+        <img src={logoImg.src}></img>
+      </Link>
+    </header>
+  );
+}
+
+```
